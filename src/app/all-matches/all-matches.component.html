@@ -1,0 +1,34 @@
+<!-- favorite-list.component.html -->
+<div class="container">
+    <h2>All Matches</h2>
+    <table class="table">
+        <thead class="bg-light">
+            <tr>
+                <th>Click To Saved Match</th>
+                <th>Match Id</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let venue of listVenues">
+                <td>
+                    <div class="d-flex align-items-center">
+                        <button type="button " class="border-0 bg-white"
+                            [ngClass]="{'bi bi-star': !venue.isFavorite, 'bi bi-star-fill text-danger': venue.isFavorite}"
+                            (click)="toggleSave(venue)">
+                            &#9733;
+                        </button>
+                    </div>
+                </td>
+                <td>
+                    <p class="fw-normal mb-1"> {{ venue.id }}</p>
+                </td>
+                <td>
+                    <p class="fw-normal mb-2">{{venue.location.country}}</p>
+                    <p class="text-muted mb-1">{{venue.location.state}}</p>
+                    <p class="text-muted mb-0">{{venue.location.city}}</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
